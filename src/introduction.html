@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>简介 - 面向图形和游戏开发的三维数学启蒙宝典</title>
+        <link rel="stylesheet" href="../style/game_math_cn.css">
+        <link rel="stylesheet" href="../style/mjx_style.css">
+        <link rel="icon" href="../style/favicon.png">
+    </head>
+
+    <body id="body">
+        <script>
+            var body = document.getElementById('body');
+            var lightmode = (parseInt(window.localStorage && window.localStorage.getItem('lightMode'))) ? 1 : 0;
+            if (lightmode)
+                body.classList.add("LightMode");
+        </script>
+        <div id="BodyContainer">
+            <div id="LeftColumn"></div>
+            <div id="MainColumn">
+                <header class="NavBar">
+                    <div class="NavPrevChapter"></div>
+                    <div class="NavContents"><a href="./toc.html">目录</a></div>
+                    <div class="NavNextChapter"><a class="NavChapterNum" href="cartesianspace.html">笛卡尔坐标系 &gt;&gt;
+                        </a></div>
+                </header>
+                <div class="ChapterTitleSection">
+                    <div class="ChapterTitle">简介
+                        <img id="lightmodetoggle" src="../style/light_dark_toggle.png" title="点击切换深色模式" alt="点击切换深色模式">
+                    </div>
+                    <div class="ChapterQuotes">
+                        <div class="WittyQuotation">
+                            First things first, but not necessarily in that order.
+                            <div class="QuotationSource">&#8212;&#160;Doctor Who from <i>Meglos</i> (1980)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h1 id="about_web_version"><span class="SectionTitle">关于此在线版本</span></h1>
+                <p>呈现在您面前的内容来自于 <a href="https://doi.org/10.1201/b11152" target="_blank" class="bold">一本书</a>。但如今，大多数如 3D 数学和视频游戏编程学习的技术主题，都是在线进行的。因此有些读者可能难以直观地看到技术书籍可能是什么样子。如果您恰好感兴趣，请参看 <a href="#book_anachronism">图 1</a>。
+                </p>
+                <div id="book_anachronism" class="Display Figure Narrow">
+                    <div class="Body">
+                        <img class="WithFrame" src="../img/intro/book_anachronism.png" loading="lazy" width="206" height="219">
+                    </div><span class="Caption">
+                        <span class="Label">图&#160;1</span><span class="CaptionText">实体书籍曾被用来交流技术知识</span>
+                    </span>
+                </div>
+                <p>
+                    它包含一些不合时宜的特征，如 ISBN 编号、索引、参考书目、编号的章、节和页，以及未分解为280个字符的文字块，例如您现在正在阅读的连句。这种知识的物理表现形式重量超过4磅（约1.814千克），而且与在线形式相比具有许多优势。例如它可用于帮你顶住门；或用来将显示器垫高到所需的高度；你也可以将之与你收集的其他书籍一起展示在书架上，作为你身份的表达——真实的或你所期望的那样——无论你是否真正读过它们，这都将行之有效！但实体书最大的好处就是一眼就能看出它有多长——您正在阅读一本 850 页的书。
+                </p>
+                <p>
+                    这本书于 2011 年出版。那一年，《英雄联盟》年仅两岁，而《上古卷轴V：天际》刚刚发布，距离 PS4 发售还有两年时间。但我们很高兴地宣布，这本书中的大部分内容，就像比尔博仍然拥有魔戒一样——从未有哪怕一天的老去！向量和矩阵的工作方式与过去一样，
+                    <mjx-container class="MathJax" jax="CHTML" style="font-size: 100%; position: relative" role="presentation">
+                        <mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml role="presentation" unselectable="on" display="inline">
+                            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>F</mi>
+                            </math>
+                        </mjx-assistive-mml>
+                    </mjx-container> 仍然等于 <mjx-container class="MathJax" jax="CHTML" style="font-size: 100%; position: relative" role="presentation">
+                        <mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml role="presentation" unselectable="on" display="inline">
+                            <math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>m</mi>
+                                <mi>a</mi>
+                            </math>
+                        </mjx-assistive-mml>
+                    </mjx-container>， 而且人们 <i>仍然</i> 在使用 <a href="https://www.wikiwand.com/en/articles/Blinn%E2%80%93Phong_reflection_model" target="_blank" class="bold">Blinn-Phong 反射模型</a>。
+                </p>
+                <p>
+                    然而，书中的一些部分已经略显过时。理论最少而侧重实用性的两个章节《3D图形数学专题》（<a href="./src/graphics.html" class="bold">第 10 章</a>）和《力学II：线性与旋转变化》（<a href="./src/dynamics.html" class="bold">第 12 章</a>）尤其需要更新和重新评估。我们没有引用过比十年前的任何出版物或网站。供参考的一些笑话和文化内容已经过时了。我们将努力改进这一点；您可以通过 <a href="#feedback" class="bold">提供反馈</a> 来帮助我们。
+                </p>
+
+                <h1 id="what"><span class="SectionTitle">谁该阅读本书？</span></h1>
+                <p>
+                    本书是关于3D数学与3D空间的几何和代数。它旨在教授您如何使用数学来描述物体及其位置、方向和轨迹。这不是一本关于计算机图形学、模拟或计算几何的书。然而如果你打算学习这些主题，本书的内容将会对你非常有用。
+                </p>
+                <p>
+                    本书不仅是为游戏开发者设计的，尽管我们假设大多数读者是为了编程游戏而学习的。但我们希望他能帮助更多的读者，因此我们已经为多样化的受众详细设计了本书的内容。如果你是一名程序员或对学习如何制作游戏感兴趣，欢迎来到这里！如果你不符合上述条件，这本书仍然值得一读。我们已经尽最大努力使本书对设计师和艺术家都有用。虽然本书中有一些代码片段，但（希望）即使非程序员也能轻松阅读。最重要的是，即使在理解代码的过程中也常常需要理解相关的概念。但反过来却不一定成立。我们使用代码示例来说明某些概念如何在计算机上实现，而不是解释这些概念本身。
+                </p>
+                <p>
+                    本书的标题注明为了“游戏开发”，但其中的大部分内容都适用于其他领域。具体来说，任何想要模拟、渲染或理解三维世界的人都可以从中受益。由于我们是游戏设计领域的专家、而且游戏设计的确是我们的目标群体，因此本书涉及一些游戏开发领域的例子。但即使你完成的上一个游戏是<i>太空探索</i> <a href="#footnote_1" class="FootnoteRef">1</a>, 你也不会被排除在外。如果你的兴趣在于比电子游戏更“成熟”的事物，请放心，本书中并没有充斥着电子游戏中有关爆头或断肢或如何让血液喷射看起来恰到好处的具体示例。
+                </p>
+
+                <h1 id="why"><span class="SectionTitle">为何阅读本书？</span></h1>
+                <p>
+                    本书有很多独特的特征，包括其主题、方法、作者和写作风格。
+                </p>
+                <p class="NoIndent"><span class="h3">独特的主题：</span> 本书填补了其他关于图形、线性代数、模拟、和编程的书籍中所缺少的空白。它是一本入门书籍，意味着我们专注于提供全面的3D概念的覆盖——这些主题通常会在几页简短的内容中被掩盖或被归入其他书籍的附录中（因为毕竟您已经了解了这些） 。我们发现这些主题往往是初学者的症结所在！在某种程度上，这本书是图形、物理和曲线的书籍的完美结合。理想的组合应始于是对数学基础知识的简要概述，然后是对应用领域的深入介绍。因此，我们在对数学基础知识做了全面介绍之后，对应用领域进行紧凑和高屋建瓴的总览。
+                </p>
+                <p>
+                    本书确实试图为初学者提供一个优雅的切入点，但这并不意味着我们将一直纠缠于简单的知识点。书内有大量传统上被认为是“高级”的材料，并在高年级或研究生课程中内容。事实上，这些主题的专业性远大于其难度。而且近来它们已成为需要提前掌握的知识——这恰恰是推动对此类书籍的需求的部分原因。
+                </p>
+                <p class="NoIndent"><span class="h3">独特的方法：</span> 所有作者都认为他们在迂腐和健谈之间取得了完美的平衡，以便最好地吸引读者，我们也不例外。然而，我们认识到，那些不同意这种热情洋溢的自我评价的人大多会发现这本书过于非正式（请参阅索引条目“老学究警报”）。我们专注于清晰的解释和直觉，有时我们这样做是以牺牲严谨性为代价的。我们的目标是简化，但不是过度简化。我们引导读者通过一条避开巨魔和龙的路径到达目标。那么，为何在开始旅程之前就将它们全部指出来呢开始旅程呢——甚至我们还没说出我们的目的地是什么、或我们为什么要去那里之前？这是由于我们知道读者最终会自行跨越这些障碍。因此在达到目标后，我们会转身指出曾经的危险所在。但有时我们可能需要将某些巨魔杀戮留给以后再说，特别是如果我们预计您惯常的路径不会让您接近危险。那些打算深耕此领域的读者应该咨询专家以获取更深入的了解。这并不是说我们认为严谨不重要；我们只是认为，在了解了大局之后，更容易获得严谨性，而不是在每次讨论中预先讨论处理边缘情况所需的定义和公理。坦率地说，现在读者可以在 Wikipedia 或 <a href="https://mathworld.wolfram.com" target="_blank" class="bold">Wolfram MathWorld</a> 上 <i>免费</i> 找到简洁而正式的演示。因此我们认为任何一本书都不会因为过度关注定义、公理、证明、和边缘案例而提供太多值得付费的内容，特别是对于目标读者是工程师的入门材料。
+                </p>
+                <p class="NoIndent"><span class="h3">独特的作者：</span> 我们的综合经验将学术权威与实际建议结合在一起。 Fletcher Dunn 自 1996 年以来一直专业制作视频游戏。他在达拉斯的 Terminal Reality 工作，作为首席程序员，他是 Infernal 引擎的架构师之一，也是 <i>BloodRayne</i> 的首席程序员。他是华特迪士尼公司芝加哥 Wideload Games 的技术总监，也是《Disney Guilty Party》（IGN 的 E3 2010 年度家庭游戏）的首席程序员。他现在在华盛顿州贝尔维尤的 Valve Software 工作，并为 Steam 和 Valve 最近的所有游戏做出了贡献。他是 GameNetworkingSockets 网络库和 Steam 数据报中继服务的主要作者。但迄今为止，他最出名的还是《使命召唤：现代战争 2》中的邓恩下士。
+
+                    Our combined experience brings together academic authority with
+                    in-the-trenches practical advice. Fletcher Dunn has been making video games professionally
+                    since 1996. He worked at Terminal Reality in Dallas, where as principal programmer he was one
+                    of the architects of the Infernal engine and lead programmer on . He was a
+                    technical director for The Walt Disney Company at Wideload Games in Chicago and the lead
+                    programmer for <i>Disney Guilty Party</i>, IGN's E3 2010 Family Game of the Year. He now works
+                    for Valve Software in Bellevue, Washington and has contributed to Steam and all of Valve's recent
+                    games. He is the primary author of the <a href="https://github.com/ValveSoftware/GameNetworkingSockets">GameNetworkingSockets</a>
+                    networking library and the <a href="https://partner.steamgames.com/doc/features/multiplayer/steamdatagramrelay">Steam Datagram Relay</a>
+                    service. But his biggest claim to fame by far is as the namesake of Corporal Dunn from
+                    <i>Call of Duty: Modern Warfare 2</i>.
+                </p>
+                <p>
+                    <a href="http://ianparberry.com/">Dr. Ian Parberry</a> has more than 35 years of experience in research
+                    and teaching in academia. This is his sixth book, his third on game programming. He is currently a
+                    tenured full professor in the Department of Computer Science &amp; Engineering at the University of
+                    North Texas. He is nationally known as one of the pioneers of game programming in higher education,
+                    and has been teaching game programming classes at the University of North Texas continuously since 1993.
+                </p>
+                <p class="NoIndent"><span class="h3">Unique writing style.</span> We hope you will enjoy reading this math book (say <i>what</i>?)
+                    for two reasons. Most important, we want you to <i>learn</i> from this book, and learning
+                    something you are interested in is fun. Secondarily, we want you to enjoy <i>reading</i> this
+                    book in the same way that you enjoy reading a work of literature. We have no delusions that
+                    we're in the same class as
+                    Mark Twain, or that this book is destined to become a classic like, say,
+                    <i>The Hitchhikers Guide to the Galaxy</i>. But one can always have aspirations. Honestly, we are
+                    just
+                    silly people. At the same time, no writing style should stand in the way of the first
+                    priority: clear communication of mathematical knowledge about video games.<a href="#footnote_2" class="FootnoteRef">2</a>
+                </p>
+
+                <h1 id="prerequisites"><span class="SectionTitle">What You Should Know before Reading This Book</span></h1>
+                <p class="NoIndent">We have tried to make the book accessible to as wide an audience as possible; no book, however,
+                    can go back all the way to first principles. We expect from the reader the following basic
+                    mathematical skills:
+                </p>
+                <ul>
+                    <li>
+                        Manipulating algebraic expressions, fractions, and basic algebraic laws such
+                        as the associative and distributive laws and the
+                        quadratic equation.
+                    </li>
+                    <li>
+                        Understanding what variables are, what a function is, how to graph a function,
+                        and so on.
+                    </li>
+                    <li>
+                        Some very basic 2D Euclidian geometry, such as what a point is,
+                        what a line is, what it means for lines to be parallel and perpendicular, and so forth.
+                        Some basic formulas for area and circumference are used in a few places. It's
+                        OK if you have temporarily forgotten those&#8212;you will hopefully recognize them when
+                        you see them.
+                    </li>
+                    <li>
+                        Some prior exposure to trigonometry is best. We give a brief review of
+                        trigonometry in the front of this book, but it is not presented with the same level
+                        of paced explanation found most elsewhere in this book.
+                    </li>
+                    <li>
+                        Readers with some prior exposure to
+                        calculus will have an advantage, but we have restricted our use of calculus in this
+                        book to very basic principles, which we will (attempt to) teach in
+                        <a href="kinematics_calculus.html">Chapter&#160;11</a> for those without this training. Only the most
+                        high-level concepts and fundamental laws are needed.
+                    </li>
+                </ul>
+                <p>
+                    Some programming knowledge is helpful, but <i>not</i> required. In several places, we give brief
+                    code snippets to show how the ideas being discussed get translated into code. (Also certain
+                    procedures are just easier to explain in code.) These snippets are extremely basic, well
+                    commented, and require only the most rudimentary understanding of C language syntax (which has
+                    been copied to several other languages). Most technical artists or level designers should be able
+                    to interpret these snippets with ease.
+                </p>
+
+                <h1 id="overview"><span class="SectionTitle">Overview</span></h1>
+                <ul>
+                    <li>
+                        <span class="ListItemTitle"><a href="cartesianspace.html">Chapter&#160;1</a></span> gets warmed up with some groundwork that
+                        it is needed in the rest of the book and which you probably already know. It
+                        reviews the Cartesian coordinate system in 2D and 3D and discusses how to use
+                        the Cartesian coordinate system to locate points in space. Also included is a very
+                        quick refresher on trigonometry and summation notation.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="vectors.html">Chapter&#160;2</a></span> introduces vectors from a mathematical and geometric
+                        perspective and investigates the important relationship between points and vectors.
+                        It also discusses a number of vector operations, how to do them, what it means geometrically
+                        to do them, and situations for which you might find them useful.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="multiplespaces.html">Chapter&#160;3</a></span> discusses examples of coordinate spaces
+                        and how they are nested in a hierarchy. It also introduces the central concepts
+                        of basis vectors and coordinate-space transformations.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="matrixintro.html">Chapter&#160;4</a></span> introduces matrices from a mathematical and geometric
+                        perspective and shows how matrices are a compact notation for the math behind
+                        linear transformations.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="matrixtransforms.html">Chapter&#160;5</a></span> surveys different types of linear
+                        transformations and their corresponding matrices in detail. It also discusses
+                        various ways to classify transformations.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="matrixmore.html">Chapter&#160;6</a></span> covers a few more interesting and useful
+                        properties of matrices, such as affine transforms and perspective projection,
+                        and explains the purpose and workings of four-dimensional vectors and matrices
+                        within a three-dimensional world.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="polarspace.html">Chapter&#160;7</a></span> discusses how to use polar coordinates
+                        in 2D and 3D, why it is useful to do so, and how to convert between polar and
+                        Cartesian representations.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="orient.html">Chapter&#160;8</a></span> discusses different techniques for representing orientation
+                        and angular displacement in 3D: Euler angles, rotation matrices, exponential maps, and
+                        quaternions. For each method, it explains how the method works and presents the
+                        advantages and disadvantages of the method and when its use is recommended.
+                        It also shows how to convert between different representations.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="geomprims.html">Chapter&#160;9</a></span> surveys a number of commonly used geometric
+                        primitives and discusses how to represent and manipulate them mathematically.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="graphics.html">Chapter&#160;10</a></span> is a whirlwind lesson on graphics, touching on
+                        a few selected theoretical as well as modern practical issues. First, it presents
+                        a high-level overview of &#8220;how graphics works,&#8221; leading up to the rendering equation.
+                        The chapter then walks through a few theoretical topics of a mathematical nature. Next
+                        it discusses two contemporary topics that are often sources of mathematical difficulty
+                        and should be of particular interest to the reader: skeletal animation
+                        and bump mapping. Finally, the chapter presents an overview of the real-time graphics pipeline,
+                        demonstrating how the theories from the first half of the chapter are implemented in the
+                        context of current rendering hardware.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="kinematics_calculus.html">Chapter&#160;11</a>
+                        </span> crams two rather large topics
+                        into one chapter. It interleaves the highest-level topics from first-semester
+                        calculus with a discussion of rigid body kinematics&#8212;how to describe and analyze
+                        the motion of a rigid body without necessarily understanding its cause or being concerned
+                        with orientation or rotation.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="dynamics.html">Chapter&#160;12</a></span> continues the discussion of rigid body mechanics.
+                        It starts with a condensed explanation of classical mechanics, including Newton's laws of
+                        motion and basic concepts such as inertia, mass, force, and momentum.
+                        It reviews a few basic force laws, such as gravity, springs, and friction. The chapter
+                        also considers the rotational analogs of all of the linear ideas discussed up to this point.
+                        Due attention is paid to the important topic of collisions. The chapter
+                        ends with a discussion of issues that arise when using a computer to simulate rigid bodies.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="curves.html">Chapter&#160;13</a></span> explains parametric curves in 3D. The first
+                        half of the chapter explains how a relatively short curve is represented in
+                        some common, important forms: monomial, B&#233;zier, and Hermite. The second half
+                        is concerned with fitting together these shorter pieces into a longer curve, called
+                        a <i>spline</i>. In understanding each system, the chapter considers what controls the system
+                        presents to a designer of curves, how to take a description of a curve made
+                        by a designer and recreate the curve, and how these controls can be used to construct
+                        a curve with specific properties.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle"><a href="afterword.html">Chapter&#160;14</a></span> inspires the reader to pursue greatness in video games.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle">Appendix A</span> is an assortment of useful tests that can be
+                        performed on geometric primitives. We intend it to be a helpful reference, but
+                        it can also make for interesting browsing.
+                    </li>
+                    <li>
+                        <span class="ListItemTitle">Appendix B</span> has all the answers.<a href="#footnote_3" class="FootnoteRef">3</a>
+                    </li>
+                </ul>
+
+                <h1 id="feedback"><span class="SectionTitle">How to Give Feedback</span></h1>
+                <p class="NoIndent">We calculated the odds that we could write an 800+&#160;page math book free of mistakes. The result
+                    was a negative number, which we know can't be right, but is probably pretty close.
+                    If you find a bug in this book, or have feedback of any kind, send
+                    an email to <span class="FontFixedWidth"><span class="hbox">feedback</span>@<span class="hbox">gamemath</span>.<span class="hbox">com</span></span>
+                    or reach out to Fletcher on twitter (<a href="https://twitter.com/zpostfacto">@ZPostFacto</a>).
+                </p>
+                <div class="ChapterEndQuotes">
+                    <div class="WittyQuotation">
+                        Careful. We don't want to learn from this.
+                        <div class="QuotationSource">
+                            &#8212;&#160;Bill Watterson (1958&#8211;) from <i>Calvin and
+                                Hobbes</i>
+                        </div>
+                    </div>
+                </div>
+                <ol class="Footnotes">
+                    <li id="footnote_0">
+                        Well, you may be
+                        left out of a few jokes, like that one. Sorry.
+                    </li>
+                    <li id="footnote_1">
+                        Which is why
+                        we've put most of the jokes and useless trivia in footnotes
+                        like this. Somehow, we felt like we could get away with more that way.
+                    </li>
+                    <li id="footnote_2">To the exercises, that is.</li>
+                </ol>
+                <footer class="NavBar">
+                    <div class="NavPrevChapter"></div>
+                    <div class="NavContents"><a onclick="window.scrollTo(0,0);" style="cursor:pointer;">Back To Top</a>
+                    </div>
+                    <div class="NavNextChapter"><a class="NavChapterNum" href="cartesianspace.html">Cartesian Coordinate Systems &gt;&gt;
+                        </a></div>
+                </footer>
+            </div>
+            <div id="RightColumn"></div>
+        </div>
+        </div>
+
+        <script>
+            document.getElementById('lightmodetoggle').onclick = function () {
+                lightmode = lightmode ? 0 : 1;
+                if (lightmode)
+                    body.classList.add("LightMode");
+                else
+                    body.classList.remove("LightMode");
+                if (window.localStorage)
+                    window.localStorage.setItem('lightMode', lightmode)
+            }
+        </script>
+    </body>
+
+</html>

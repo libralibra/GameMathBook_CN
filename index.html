@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>面向图形和游戏开发的三维数学启蒙宝典</title>
+        <link rel="stylesheet" href="./style/game_math_cn.css">
+        <link rel="stylesheet" href="./style/mjx_style.css">
+        <link rel="icon" href="./style/favicon.png">
+        <!-- Screen version -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" />
+    </head>
+
+    <body id="body">
+        <script>
+            var body = document.getElementById('body');
+            var lightmode = (parseInt(window.localStorage && window.localStorage.getItem('lightMode'))) ? 1 : 0;
+            if (lightmode)
+                body.classList.add("LightMode");
+        </script>
+
+        <body id="body" class="LoudLinks">
+            <div id="BodyContainer">
+                <div id="LeftColumn"></div>
+                <div id="MainColumn">
+                    <div class="ChapterTitleSection">
+                        <div class="ChapterTitle AlignCenter">面向图形和游戏开发的<br>
+                            三维数学启蒙宝典(第2版)<br>
+                            (中文版)
+                            <img id="lightmodetoggle" src="./style/light_dark_toggle.png">
+                        </div>
+                        <p class="NoIndent">Dunn, F., & Parberry, I. (2011). <span class="bold">3D Math Primer for Graphics and Game Development</span> (2nd ed.). A K Peters/CRC Press. <a href="https://doi.org/10.1201/b11152" target="_blank" class="bold">https://doi.org/10.1201/b11152</a></p>
+
+                        <p class="FontSmall AlignCenter red">您也可以通过 <a href="https://gamemath.com/" target="_blank" class="bold">此链接</a> 访问原版英文内容。如果觉得内容对您有帮助，请考虑购买正版。</p>
+                    </div>
+                    <p>欢迎访问 <i class="bold">面向图形和游戏开发的三维数学启蒙宝典</i> 的中文翻译版本，在教学过程中偶然发现这本优秀的教材之后，决定将其翻译为中文，以供国内读者阅读。</p>
+                    <p>
+                        作为一本面向对图形和游戏开发有兴趣的读者的启蒙教材，本书旨在用最简单的语言和最直观的图示来介绍三维数学的基础知识。内容由浅入深，适合各种基础的读者阅读。</p>
+                    <p>你可以从 <a href="./src/introduction.html" class="bold">这里</a> 开始阅读本书的完整内容。</p>
+
+                    <a href="src/introduction.html">
+                        <img style="width:100%;" src="./img/cover_72dpi.jpg" />
+                    </a>
+
+
+                    <p class="FontFootnoteSize AlignCenter">本书英文版权由原作者享有，本中文译本由 <a href="https://github.com/libralibra/GameMathBook_CN" target="_blank" class="bold">Dr. Daniel Zhang</a> 翻译，如有错漏，请联系修改。</p>
+                    <p></p>
+                    <p></p>
+                    <p class="FontFootnoteSize AlignCenter">
+                        <CC:ie>本译本仅供学习交流使用，不得用于商业用途。</CC:ie><br>
+                        <script>document.write("本译本版本：" + document.lastModified.slice(0, 10));</script>
+                    </p>
+                </div>
+            </div>
+            <script>
+                document.getElementById('lightmodetoggle').onclick = function () {
+                    lightmode = lightmode ? 0 : 1;
+                    if (lightmode)
+                        body.classList.add("LightMode");
+                    else
+                        body.classList.remove("LightMode");
+                    if (window.localStorage)
+                        window.localStorage.setItem('lightMode', lightmode)
+                }
+            </script>
+        </body>
+
+</html>

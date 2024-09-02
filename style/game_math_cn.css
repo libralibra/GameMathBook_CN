@@ -1,0 +1,645 @@
+/* the original css */
+body {
+    --background: rgb(13, 17, 23);
+    --background-var-a: rgb(33, 37, 43);
+    --background-var-b: rgb(43, 47, 53);
+    --background-var-c: rgb(73, 77, 83);
+    --primary-color: rgb(147 156 165);
+    --heading-color: rgb(100, 170, 200);
+    --accent-color: rgb(100, 200, 170);
+    --accent-color-background: rgb(12, 30, 25);
+    --frame-color: rgb(73, 77, 83);
+}
+
+body.LightMode {
+    --background: white;
+    --background-var-a: #a0a0a0;
+    --background-var-b: #d0d0d0;
+    --background-var-c: #e0e0e0;
+    --primary-color: black;
+    --heading-color: #004f27;
+    --accent-color: #005a87;
+    --accent-color-background: #f4f4ff;
+    --frame-color: #c0c0c0;
+}
+
+body {
+    background: var(--background);
+    color: var(--primary-color);
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-size: var(--font-size-normal);
+    margin: 10px;
+    line-height: 1.25;
+}
+
+/* ============================================= */
+/* extras by Daniel, 2024 */
+
+/* Chinese font family: */
+body {
+    font-family: "LXGW WenKai", sans-serif;
+    /* Lite version */
+    font-family: "LXGW WenKai Lite", sans-serif;
+    /* TC version */
+    font-family: "LXGW WenKai TC", sans-serif;
+    /* Screen version */
+    font-family: "LXGW WenKai Screen", sans-serif;
+}
+
+
+.red {
+    color: red;
+}
+
+.bold {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* ============================================= */
+
+/* Mobile layout */
+body {
+    --font-size-title: 30px;
+    --font-size-h1: 24px;
+    --font-size-h2: 20px;
+    --font-size-normal: 16px;
+    --font-size-small: 14px;
+    --font-size-inlinecode: 14px;
+    --font-size-listing: 14px;
+    --font-size-scriptsize: 12px;
+}
+
+/* 深色模式 */
+#lightmodetoggle {
+    float: right;
+    width: 1em;
+    height: 1em
+}
+
+#BodyContainer {
+    width: 100%;
+}
+
+#LeftColumn,
+#RightColumn {
+    display: none;
+}
+
+#MainColumn {
+    width: 100%;
+}
+
+.InMarginAnchor {
+    display: block;
+    clear: both;
+}
+
+.InMargin {
+    display: block;
+    line-height: 1.0;
+}
+
+/* LaTeX \mbox used to prevent line break inside */
+span.mbox {
+    display: inline-block;
+}
+
+.vbox {
+    display: inline-flex;
+    flex-flow: column nowrap;
+}
+
+.Caption {
+    font-size: var(--font-size-small);
+    display: flex;
+}
+
+/* Put caption label on top, by default */
+.Caption {
+    flex-flow: column nowrap;
+}
+
+.Caption .Label,
+.Caption .CaptionText {
+    margin-top: .5ex;
+}
+
+.Display.Wide .Caption {
+    margin-top: .5em;
+}
+
+/* Tables need a little more space between the table and the caption */
+.Display.Wide.Table .Caption {
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+/* For wire material, put label to the left */
+.Display.Wide .Caption {
+    flex-direction: row;
+}
+
+.Display.Wide .Caption .Label {
+    margin-right: 1ex;
+}
+
+.Display.Table td {
+    padding-top: .8ex;
+    padding-bottom: .8ex;
+    vertical-align: top;
+}
+
+.Listing pre {
+    border: 1px solid var(--frame-color);
+    font-size: var(--font-size-listing);
+    /* background-color: black; */
+    padding: 1em;
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin: 0px 0px 0.5em 0px;
+}
+
+/* Hide margin captions by default */
+.EqMarginCaption {
+    display: none;
+    font-size: var(--font-size-scriptsize);
+    color: var(--accent-color);
+}
+
+.SectionNumber {
+    display: inline;
+    margin-right: 1ex;
+}
+
+.SectionTitle {
+    display: inline;
+}
+
+p {
+    text-indent: 2em;
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+}
+
+ol,
+ul {
+    margin-block-start: .5em;
+    margin-block-end: .5em;
+    padding-inline-start: 3ex;
+}
+
+/* Desktop layout.  Screen is wide enough to increase
+  font side and add the right margin */
+@media screen and (min-width: 970px) {
+    #BodyContainer {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    body {
+        --font-size-title: 50px;
+        --font-size-h1: 30px;
+        --font-size-h2: 24px;
+        --font-size-normal: 18px;
+        --font-size-small: 16px;
+        --font-size-inlinecode: 16px;
+        --font-size-listing: 16px;
+        --font-size-scriptsize: 14px;
+    }
+
+    /* Left column will be 200px, same as right column.  Unless
+	   it doesn't fit, then shrink to zero */
+    #LeftColumn {
+        display: initial;
+        flex: 1 0 0px;
+        max-width: 200px;
+    }
+
+    #MainColumn {
+        width: 800px;
+    }
+
+    #RightColumn {
+        display: initial;
+        width: 200px;
+    }
+
+    .InMargin {
+        position: absolute;
+        left: 10px;
+        width: 200px;
+        display: inline-block;
+    }
+
+    .InMarginAnchor {
+        display: inline;
+        position: relative;
+        float: right;
+        width: 0px;
+        height: 0px;
+    }
+
+    /* We're wide enough to turn these on */
+    .EqMarginCaption {
+        display: inline;
+        width: 160px;
+    }
+
+    .SectionNumber {
+        margin-right: 1.5ex;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .SectionTitle {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    ol,
+    ul {
+        padding-inline-start: 4.5ex;
+    }
+
+}
+
+/* Screen wide enough for full size left column.  Slam
+   body container size to max, and center it */
+@media screen and (min-width: 1170px) {
+    #BodyContainer {
+        width: 1150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.FontSmallCaps {
+    font-variant: small-caps;
+}
+
+.FontSmall {
+    font-size: var(--font-size-small);
+}
+
+.FontFootnoteSize,
+.FontScriptSize {
+    font-size: var(--font-size-scriptsize);
+}
+
+.FontSfFamily {
+    font-family: sans-serif;
+}
+
+
+#MainColumn table {
+    border-collapse: collapse
+}
+
+#MainColumn td {
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: left;
+}
+
+tr.HLineAbove {
+    border-top: 1px solid var(--primary-color);
+}
+
+tr.HLineBelow {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+td.VLineLeft {
+    border-left: 1px solid var(--primary-color);
+}
+
+td.VLineRight {
+    border-right: 1px solid var(--primary-color);
+}
+
+.AlignCenter {
+    text-align: center;
+}
+
+.AlignLeft {
+    text-align: left;
+}
+
+.AlignRight {
+    text-align: right;
+}
+
+.inlinecode,
+.FontFixedWidth {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: var(--font-size-inlinecode) letter-spacing:-.05ex;
+}
+
+p.NoIndent {
+    text-indent: 0;
+}
+
+li {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+li.HasCustomMarker {
+    /* padding-left: 0.3ex; */
+    list-style-type: none;
+}
+
+li.HasCustomMarker .ItemMarker {
+    margin-left: -3.25ex;
+}
+
+.ItemMarker {
+    padding-right: 0.75ex;
+}
+
+div.ChapterTitle,
+div.ChapterNumber {
+    font-size: var(--font-size-title);
+    color: var(--heading-color);
+}
+
+div.ChapterNumber {
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 20px;
+}
+
+div.ChapterTitle {
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.Caption .Label {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.Display img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: scale-down
+}
+
+.Display.InMargin img {
+    max-width: initial;
+}
+
+.Display.Wrap {
+    max-width: 50%;
+    float: right;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.Display.Wide {
+    clear: both;
+    display: flex;
+    flex-flow: column;
+    margin-top: 1em;
+    margin-bottom: .8em;
+}
+
+.Display.Wide .Body,
+.Display.Wide .Caption {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    /* overflow-x:auto; */
+}
+
+.DisplayMath {
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+.Display.Narrow {
+    clear: both;
+    display: flex;
+    flex-flow: row;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.Display.Narrow .Body {
+    display: inline-flex;
+    max-width: 100%;
+}
+
+.Display.Narrow .Caption {
+    display: inline-flex;
+    margin-left: 10px;
+    margin-top: auto;
+}
+
+/* When we bring margin images into the main text,
+  they are usually narrow enough to treat them as
+  "narrow" and we can put the caption to the side */
+@media screen and (max-width: 949px) {
+    .Display.InMargin {
+        clear: both;
+        display: flex;
+        flex-flow: row;
+        margin-top: 20px;
+        margin-bottom: 25px;
+    }
+
+    .Display.InMargin .Body {
+        display: inline-flex;
+    }
+
+    .Display.InMargin .Caption {
+        display: inline-flex;
+        margin-left: 10px;
+        margin-top: auto;
+    }
+}
+
+
+div.KeyIdea {
+    clear: both;
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1ex;
+    border: 4px solid var(--accent-color);
+    background-color: var(--accent-color-background)
+}
+
+.KeyIdeaTitle {
+    font-size: var(--font-size-h2);
+    /* font-weight:bold; */
+    color: var(--heading-color);
+    margin-bottom: 1ex;
+}
+
+h1 {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    clear: both;
+    font-size: var(--font-size-h1);
+    color: var(--heading-color);
+    font-weight: normal;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    clear: both;
+    font-size: var(--font-size-h2);
+    color: var(--heading-color);
+    font-weight: normal;
+}
+
+.h3 {
+    font-weight: bold;
+    color: var(--heading-color);
+    margin-right: 10px;
+}
+
+.WithFrame {
+    border: 1px solid var(--frame-color);
+}
+
+div.ChapterTitleSection {
+    margin-bottom: 50px;
+    clear: both;
+}
+
+div.ChapterEndQuotes {
+    margin-top: 120px;
+}
+
+.ExercisesList {
+    font-size: var(--font-size-small);
+}
+
+.FootnoteRef {
+    font-size: var(--font-size-scriptsize);
+    /* vertical-align:super; */
+    vertical-align: top;
+}
+
+.Footnotes {
+    margin-top: 80px;
+    border-top: 1px solid var(--frame-color);
+    font-size: var(--font-size-small);
+}
+
+div.WittyQuotation {
+    font-style: italic;
+    width: 80%;
+    margin-left: auto;
+    text-align: right;
+    clear: both;
+}
+
+div.QuotationSource {
+    font-style: normal;
+    margin-top: 10px;
+    color: var(--accent-color);
+}
+
+/* Inline quotation (only used a few times) */
+.quotation {
+    display: block;
+    margin: 1em 2em 1em 2em;
+}
+
+/* Keyword in a list */
+.ListItemTitle {
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+/* Text that serves as bullet/number */
+.ListItemHeading {
+    font-weight: bold;
+    color: var(--heading-color);
+}
+
+.Description {
+    margin-left: 1em;
+}
+
+.Description p {
+    text-indent: -1em;
+}
+
+a {
+    color: inherit;
+    text-decoration-color: var(--background-var-b);
+}
+
+a:hover {
+    background-color: var(--background-var-a);
+    text-decoration-color: var(--background-var-c);
+}
+
+.LoudLinks a {
+    text-decoration-color: var(--background-var-c);
+}
+
+.NavBar {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: var(--font-size-small);
+    margin-bottom: 1em;
+}
+
+.NavBar .NavPrevChapter {
+    width: 40%;
+    text-align: left;
+}
+
+.NavBar .NavContents {
+    width: 20%;
+    text-align: center;
+}
+
+.NavBar .NavNextChapter {
+    width: 40%;
+    text-align: right;
+}
+
+header.NavBar {
+    margin-bottom: 2em;
+}
+
+footer.NavBar {
+    margin-top: 2em;
+}
+
+.TocEntry {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.TocEntry.TocChapter {
+    color: var(--accent-color);
+    font-size: var(--font-size-h2);
+    margin-top: 1.25em;
+    margin-bottom: .5em;
+}
+
+.TocNum {
+    /* width: 3em; */
+    margin-right: 1ex;
+    display: inline-block;
+}
+
+.TocEntry.TocSection .TocNum {
+    margin-left: 2em;
+}
+
+.TocEntry.TocSubSection .TocNum {
+    margin-left: 4em;
+}
