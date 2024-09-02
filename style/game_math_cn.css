@@ -51,6 +51,7 @@ body {
     color: red;
 }
 
+a,
 .bold {
     font-weight: bold;
     color: var(--accent-color);
